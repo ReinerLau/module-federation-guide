@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/remote/:id*',
+      path: '/remote',
       name: 'remote',
       component: () => import('../views/RemoteView.vue')
     }
