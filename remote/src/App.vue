@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { defineProps } from 'vue'
+
+defineProps({
+  token: String
+})
 </script>
 
 <template>
@@ -9,6 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <span>{{ token }}</span>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>

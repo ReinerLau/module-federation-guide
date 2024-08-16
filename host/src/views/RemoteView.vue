@@ -5,7 +5,7 @@ import { onMounted, ref } from 'vue'
 const remoteRef = ref()
 
 onMounted(() => {
-  bootstrap(remoteRef.value)
+  bootstrap(remoteRef.value, { token: 'Reiner' })
 })
 </script>
 
