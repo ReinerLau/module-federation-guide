@@ -6,7 +6,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import federation from '@originjs/vite-plugin-federation'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
@@ -16,7 +15,7 @@ export default defineConfig({
       name: 'remote',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App.vue'
+        './bootstrap': './src/bootstrap.ts'
       },
       shared: ['vue', 'vue-router', 'pinia']
     })
@@ -26,6 +25,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  base: 'http://localhost:5001',
   build: {
     target: 'esnext'
   }

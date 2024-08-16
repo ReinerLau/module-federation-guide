@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import App from 'remote/App'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,7 +20,7 @@ const router = createRouter({
     {
       path: '/remote',
       name: 'remote',
-      component: App
+      component: () => import('../views/RemoteView.vue')
     }
   ]
 })
