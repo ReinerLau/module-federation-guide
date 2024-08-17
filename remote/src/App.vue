@@ -2,10 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { defineProps } from 'vue'
+import { useCounterStore } from './stores'
 
 defineProps({
   token: String
 })
+
+const counter = useCounterStore()
 </script>
 
 <template>
@@ -15,6 +18,7 @@ defineProps({
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <span>{{ token }}</span>
+      <button @click="counter.increment">{{ counter.count }}</button>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
