@@ -16,7 +16,8 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './bootstrap': './src/bootstrap.ts',
-        './stores': './src/stores/index.ts'
+        './stores': './src/stores/index.ts',
+        './Test': './src/components/TestComponent.ce.vue'
       },
       shared: ['vue', 'vue-router', 'pinia']
     })

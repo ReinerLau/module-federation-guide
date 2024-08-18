@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { defineProps } from 'vue'
 import { useCounterStore } from './stores'
+import TestComponent from './components/TestComponent.ce.vue'
 
 defineProps({
   token: String
@@ -17,8 +18,9 @@ const counter = useCounterStore()
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <span>{{ token }}</span>
+      <span class="remote-app-title">{{ token }}</span>
       <button @click="counter.increment">{{ counter.count }}</button>
+      <TestComponent></TestComponent>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -30,7 +32,13 @@ const counter = useCounterStore()
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="less">
+.remote-app {
+  &-title {
+    color: red;
+  }
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;

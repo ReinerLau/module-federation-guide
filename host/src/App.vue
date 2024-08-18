@@ -2,8 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { useCounterStore } from 'remote/stores'
+import { defineAsyncComponent, defineCustomElement } from 'vue'
 
 const counter = useCounterStore()
+const Test = defineAsyncComponent(() => import('remote/Test'))
+
+const customElement = defineCustomElement(Test)
+customElements.define('test-component', customElement)
 </script>
 
 <template>
@@ -13,6 +18,7 @@ const counter = useCounterStore()
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <button @click="counter.increment">{{ counter.count }}</button>
+      <test-component></test-component>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -25,7 +31,11 @@ const counter = useCounterStore()
   <RouterView />
 </template>
 
-<style scoped>
+<style>
+.title {
+  color: blue !important;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;

@@ -8,3 +8,5 @@ declare module 'remote/stores' {
   export const pinia: any
   export const useCounterStore: any
 }
+
+declare module 'remote/Test' {}
